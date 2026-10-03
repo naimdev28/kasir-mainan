@@ -30,7 +30,7 @@ export default function Admin() {
   }
   useEffect(() => { load(); }, []);
 
-  const buka = (p) => { setEdit(p); setPreview(p.foto ? `/api/foto/${p.foto}` : null); };
+  const buka = (p) => { setEdit(p); setPreview(p.foto ? (p.foto.startsWith('data:') ? p.foto : `/api/foto/${p.foto}`) : null); };
 
   async function simpanBarang(e) {
     e.preventDefault();
