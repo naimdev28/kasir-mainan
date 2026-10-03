@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body { @apply bg-page font-body text-ink antialiased; }
+  h1, h2, h3 { @apply font-display; }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2.5 text-sm font-semibold transition
+      active:scale-[0.97] disabled:pointer-events-none disabled:opacity-40;
+  }
+  .btn-primary { @apply bg-brand text-white hover:bg-brand-mid; }
+  .btn-lime { @apply bg-lime text-brand-dark hover:brightness-95; }
+  .btn-ghost { @apply bg-white text-ink ring-1 ring-ink/15 hover:bg-brand-light; }
+  .btn-danger { @apply bg-white text-signal ring-1 ring-signal/30 hover:bg-signal/10; }
+  .field {
+    @apply w-full rounded-xl border border-ink/15 bg-white px-3.5 py-2.5 text-sm placeholder:text-ink/40
+      focus:border-brand focus:outline-none focus:ring-4 focus:ring-brand/15;
+  }
+  .label { @apply mb-1.5 block text-sm font-semibold text-ink/80; }
+  .panel { @apply rounded-3xl bg-white shadow-soft; }
+}
+
+@media print {
+  body * { visibility: hidden; }
+  #struk, #struk * { visibility: visible; }
+  #struk { position: absolute; left: 0; top: 0; width: 80mm; }
+}
